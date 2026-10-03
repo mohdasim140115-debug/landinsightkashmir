@@ -7,7 +7,8 @@ import { btn } from "./ui";
 
 const EVENT = "open-package-enquiry";
 const AUTO_KEY = "lik-enquiry-popup-shown";
-const AUTO_DELAY_MS = 2500;
+const AUTO_SETTLE_MS = 1500; // earliest the pop-up can appear
+const AUTO_FALLBACK_MS = 12000; // open anyway if the visitor does nothing
 
 /** Button that opens the shared enquiry modal for a specific package. */
 export function EnquiryButton({ pkg = null, className, onClick, children }) {
@@ -49,23 +50,47 @@ export default function EnquiryModal({ autoOpen = false }) {
     return () => window.removeEventListener(EVENT, onOpen);
   }, []);
 
-  // Auto-open the enquiry form shortly after the page loads — once per browser
-  // session, and never on top of another open dialog.
+  // Auto-open the enquiry form once per browser session: on the visitor's first
+  // scroll / touch / key press (after a short settle delay), or after a fallback
+  // timeout. Waiting for real interaction keeps the pop-up out of the page's
+  // initial render, so it doesn't hurt LCP / Speed Index in PageSpeed.
   useEffect(() => {
     if (!autoOpen) return;
-    let seen = false;
     try {
-      seen = sessionStorage.getItem(AUTO_KEY) === "1";
+      if (sessionStorage.getItem(AUTO_KEY) === "1") return;
     } catch {}
-    if (seen) return;
-    const t = setTimeout(() => {
-      if (document.querySelector("dialog[open]")) return;
+
+    let done = false;
+    let armed = false;
+    let interacted = false;
+    const events = ["scroll", "pointerdown", "touchstart", "keydown"];
+
+    const open = () => {
+      if (done || document.querySelector("dialog[open]")) return;
+      done = true;
+      cleanup();
       try {
         sessionStorage.setItem(AUTO_KEY, "1");
       } catch {}
       window.dispatchEvent(new CustomEvent(EVENT, { detail: null }));
-    }, AUTO_DELAY_MS);
-    return () => clearTimeout(t);
+    };
+    const onInteract = () => {
+      interacted = true;
+      if (armed) open();
+    };
+    const armTimer = setTimeout(() => {
+      armed = true;
+      if (interacted) open(); // visitor already scrolled/tapped during the settle delay
+    }, AUTO_SETTLE_MS);
+    const fallbackTimer = setTimeout(open, AUTO_FALLBACK_MS);
+    events.forEach((e) => window.addEventListener(e, onInteract, { passive: true }));
+
+    function cleanup() {
+      clearTimeout(armTimer);
+      clearTimeout(fallbackTimer);
+      events.forEach((e) => window.removeEventListener(e, onInteract));
+    }
+    return cleanup;
   }, [autoOpen]);
 
   return (

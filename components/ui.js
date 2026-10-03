@@ -9,10 +9,10 @@ const BTN_BASE =
 const BTN_VARIANTS = {
   primary: "bg-brand text-white hover:bg-brand-dark",
   secondary: "border border-line bg-white text-navy hover:border-brand hover:text-brand",
-  ghostLight: "border border-white/35 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20",
+  ghostLight: "border border-white/35 bg-white/10 text-white hover:bg-white/20",
   whatsapp: "bg-whatsapp text-white hover:bg-whatsapp-dark",
   white: "bg-white text-navy hover:bg-mist",
-  dark: "border border-white/70 bg-navy-deep/70 text-white backdrop-blur-sm hover:bg-navy-deep",
+  dark: "border border-white/70 bg-navy-deep/80 text-white hover:bg-navy-deep",
 };
 
 const BTN_SIZES = {

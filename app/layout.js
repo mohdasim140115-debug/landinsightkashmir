@@ -7,6 +7,7 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
   display: "swap",
+  preload: false, // let the hero image (LCP) win bandwidth; fonts swap in after
 });
 
 const fraunces = Fraunces({
@@ -14,6 +15,7 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   weight: ["500", "600"],
   display: "swap",
+  preload: false, // let the hero image (LCP) win bandwidth; fonts swap in after
 });
 
 // Google Tag Manager container (used for Google Ads conversion tracking).

@@ -11,7 +11,7 @@ const TRIP_TYPES = ["Honeymoon", "Family", "Group / Friends", "Solo", "Mata Vais
 const BUDGETS = ["Budget", "Standard", "Premium", "Luxury", "Not sure yet"];
 
 const inputCls =
-  "h-[46px] w-full rounded-xl border border-line bg-white px-3.5 text-[15px] text-ink placeholder:text-ink/40 transition-colors focus:border-brand focus:ring-3 focus:ring-brand/15 focus:outline-none";
+  "h-[46px] w-full rounded-xl border border-line bg-white px-3.5 text-[15px] text-ink placeholder:text-ink/70 transition-colors focus:border-brand focus:ring-3 focus:ring-brand/15 focus:outline-none";
 const labelCls = "mb-1.5 block text-[13px] font-medium text-ink/80";
 
 function Field({ label, id, icon: Icon, children, className = "" }) {
@@ -23,7 +23,7 @@ function Field({ label, id, icon: Icon, children, className = "" }) {
       <div className="relative [&>input]:pl-10 [&>select]:pl-10">
         {Icon ? (
           <Icon
-            className="pointer-events-none absolute top-1/2 left-3.5 size-[17px] -translate-y-1/2 text-ink/40"
+            className="pointer-events-none absolute top-1/2 left-3.5 size-[17px] -translate-y-1/2 text-ink/70"
             aria-hidden="true"
           />
         ) : null}
@@ -262,7 +262,7 @@ export default function EnquiryForm({ variant = "hero", submitLabel, packageName
           </>
         )}
       </button>
-      <p className="flex items-center justify-center gap-1.5 text-center text-[12px] text-ink/55">
+      <p className="flex items-center justify-center gap-1.5 text-center text-[12px] text-ink/70">
         <Lock className="size-3" aria-hidden="true" />
         No spam. Your details are only used to plan your trip.
       </p>

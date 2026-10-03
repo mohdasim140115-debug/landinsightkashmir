@@ -154,7 +154,7 @@ export function SeoGuide() {
               </a>
             </div>
             <nav aria-label="Packages" className="mt-6 border-t border-line pt-5">
-              <p className="text-[12px] font-semibold tracking-[0.14em] text-ink/55 uppercase">Popular packages</p>
+              <p className="text-[12px] font-semibold tracking-[0.14em] text-ink/70 uppercase">Popular packages</p>
               <ul className="mt-3 space-y-2 text-[14px]">
                 {[
                   ["kashmir-paradise", "Kashmir Paradise"],

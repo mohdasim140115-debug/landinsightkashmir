@@ -74,7 +74,7 @@ export function Footer() {
               <Phone className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
               <span className="flex flex-col">
                 {SITE.phones.map((p) => (
-                  <a key={p.tel} href={`tel:${p.tel}`} className={linkCls}>
+                  <a key={p.tel} href={`tel:${p.tel}`} className={`${linkCls} inline-block py-1.5`}>
                     {p.display}
                   </a>
                 ))}
@@ -128,7 +128,7 @@ export function MobileCtaBar() {
   return (
     <nav
       aria-label="Quick contact"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_24px_-12px_rgb(6_59_76/0.25)] backdrop-blur lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_24px_-12px_rgb(6_59_76/0.25)] lg:hidden"
     >
       <ul className="grid grid-cols-3 gap-2 p-2.5">
         <li>

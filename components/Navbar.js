@@ -31,7 +31,7 @@ export default function Navbar() {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
+    <header className="sticky top-0 z-40 border-b border-line/80 bg-white">
       <Container className="flex h-[68px] items-center justify-between gap-4 lg:h-[76px]">
         <a href="#top" className="flex shrink-0 items-center" aria-label={`${SITE.name} – home`}>
           <Logo className="h-12 w-auto lg:h-[58px]" />
@@ -83,13 +83,12 @@ export default function Navbar() {
           <a
             href={`tel:${SITE.phones[0].tel}`}
             className="flex items-center gap-2.5 text-navy transition-colors hover:text-brand"
-            aria-label={`Call ${SITE.phones[0].display}`}
           >
             <span className="grid size-10 place-items-center rounded-xl bg-mist text-brand">
               <Phone className="size-[18px]" aria-hidden="true" />
             </span>
-            <span className="hidden leading-tight xl:block">
-              <span className="block text-[11px] font-medium text-ink/55">Call us 24×7</span>
+            <span className="sr-only leading-tight xl:not-sr-only xl:block">
+              <span className="block text-[11px] font-medium text-ink/70">Call us 24×7</span>
               <span className="block text-[15px] font-semibold">{SITE.phones[0].display}</span>
             </span>
           </a>

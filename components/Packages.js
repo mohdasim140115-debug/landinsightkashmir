@@ -25,7 +25,7 @@ function PackageDetails({ p }) {
   return (
     <div>
       <div className="relative aspect-16/8 bg-mist">
-        <Image src={p.image} alt="" fill sizes="(max-width: 672px) 100vw, 672px" quality={70} className="object-cover" />
+        <Image src={p.image} alt="" fill sizes="(max-width: 672px) 100vw, 672px" quality={60} className="object-cover" />
       </div>
       <div className="p-5 sm:p-7">
         <p className="text-[12px] font-semibold tracking-[0.14em] text-brand uppercase">{duration(p)}</p>
@@ -57,7 +57,7 @@ function PackageDetails({ p }) {
             </li>
           ))}
         </ol>
-        <p className="mt-4 text-[12.5px] text-ink/55">
+        <p className="mt-4 text-[12.5px] text-ink/70">
           {p.note ? `${p.note} ` : ""}Every itinerary is customised to your dates, hotels and pace.
         </p>
 
@@ -84,18 +84,18 @@ function PriceTag({ p }) {
   if (!p.price) {
     return (
       <div>
-        <p className="text-[11.5px] font-medium text-ink/55">Price per person</p>
+        <p className="text-[11.5px] font-medium text-ink/70">Price per person</p>
         <p className="text-[17px] font-bold text-navy">On request</p>
       </div>
     );
   }
   return (
     <div>
-      <p className="text-[11.5px] font-medium text-ink/55">Starting from</p>
+      <p className="text-[11.5px] font-medium text-ink/70">Starting from</p>
       <p className="flex items-baseline gap-2">
         <span className="text-[24px] leading-tight font-extrabold text-brand">{inr.format(p.price)}</span>
-        {p.mrp ? <span className="text-[13px] text-ink/45 line-through">{inr.format(p.mrp)}</span> : null}
-        <span className="text-[12.5px] font-medium text-ink/60">/ person</span>
+        {p.mrp ? <span className="text-[13px] text-ink/70 line-through">{inr.format(p.mrp)}</span> : null}
+        <span className="text-[12.5px] font-medium text-ink/70">/ person</span>
       </p>
     </div>
   );
@@ -112,7 +112,7 @@ function PackageCard({ p }) {
           src={p.image}
           alt={p.alt}
           fill
-          quality={70}
+          quality={60}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
         />
@@ -126,7 +126,7 @@ function PackageCard({ p }) {
             </span>
           ) : null}
         </div>
-        <span className="absolute bottom-3.5 left-3.5 inline-flex items-center gap-1.5 rounded-lg bg-navy-deep/80 px-2.5 py-1 text-[12.5px] font-medium text-white backdrop-blur-sm">
+        <span className="absolute bottom-3.5 left-3.5 inline-flex items-center gap-1.5 rounded-lg bg-navy-deep/85 px-2.5 py-1 text-[12.5px] font-medium text-white">
           <Clock3 className="size-3.5" aria-hidden="true" />
           {duration(p)}
         </span>
@@ -171,7 +171,7 @@ function PackageCard({ p }) {
           <a
             href={`tel:${PRIMARY_PHONE.tel}`}
             className={btn("secondary", "md", "w-full gap-1.5 px-3 whitespace-nowrap")}
-            aria-label={`Call about the ${p.fullName}`}
+            aria-label={`Call Now about the ${p.fullName}`}
             data-cta="package-call"
           >
             <Phone className="size-4" aria-hidden="true" />
@@ -199,7 +199,7 @@ export default function Packages() {
           ))}
         </div>
 
-        <p className="mt-8 text-center text-[14px] text-ink/65">
+        <p className="mt-8 text-center text-[14px] text-ink/70">
           Every package includes hotels, meals, transfers and sightseeing — and can be fully customised.{" "}
           <a href="#plan-trip" className="font-semibold text-brand hover:underline">
             Build your own Kashmir itinerary →

@@ -5,9 +5,14 @@ const nextConfig = {
   poweredByHeader: false,
   // Hide the floating "N" Next.js dev-tools badge during `npm run dev`.
   devIndicators: false,
+  experimental: {
+    // Inline Tailwind CSS into the HTML <head>: removes the render-blocking
+    // stylesheet request (better FCP/LCP on mobile).
+    inlineCss: true,
+  },
   images: {
     formats: ["image/avif", "image/webp"],
-    qualities: [70, 75],
+    qualities: [60],
     deviceSizes: [360, 414, 640, 768, 1024, 1280, 1600, 1920],
   },
   async redirects() {

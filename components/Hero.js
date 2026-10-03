@@ -58,9 +58,8 @@ export function Hero() {
         src={HERO_IMAGE.src}
         alt={HERO_IMAGE.alt}
         fill
-        loading="eager"
-        fetchPriority="high"
-        quality={75}
+        preload
+        quality={60}
         sizes="100vw"
         className="-z-10 object-cover object-[62%_80%] lg:object-[60%_center]"
       />
@@ -72,7 +71,7 @@ export function Hero() {
 
       <Container className="grid items-center gap-10 pt-10 pb-16 sm:pt-12 lg:grid-cols-[1fr_400px] lg:gap-10 lg:pt-14 lg:pb-20 xl:grid-cols-[1fr_420px] xl:gap-14">
         <div className="max-w-[760px] text-white">
-          <p className="hidden items-center gap-2.5 rounded-full border border-gold/70 sm:inline-flex bg-navy-deep/40 px-4 py-2 text-[11px] font-semibold tracking-[0.18em] uppercase backdrop-blur-sm">
+          <p className="hidden items-center gap-2.5 rounded-full border border-gold/70 sm:inline-flex bg-navy-deep/60 px-4 py-2 text-[11px] font-semibold tracking-[0.18em] uppercase">
             <Flower2 className="size-4 text-gold" strokeWidth={1.75} aria-hidden="true" />
             Local Kashmir Travel Experts
           </p>
@@ -139,7 +138,7 @@ export function Hero() {
             <div className="p-5 pt-8 sm:px-6 sm:pt-8 sm:pb-5">
               <div className="mb-4">
                 <h2 className="font-serif text-[24px] font-semibold text-navy sm:text-[26px]">Plan Your Kashmir Trip</h2>
-                <p className="mt-1 text-[14px] text-ink/65">
+                <p className="mt-1 text-[14px] text-ink/70">
                   Share your travel details and get a free, no-obligation Kashmir tour package quote.
                 </p>
               </div>
@@ -183,7 +182,7 @@ export function TrustStrip() {
               </span>
               <span>
                 <span className="block text-[13.5px] leading-snug font-semibold text-navy sm:text-[14.5px]">{title}</span>
-                <span className="hidden text-[13px] text-ink/60 sm:block">{text}</span>
+                <span className="hidden text-[13px] text-ink/70 sm:block">{text}</span>
               </span>
             </li>
           ))}

@@ -41,7 +41,7 @@ export default function PackageDialog({ id, label, title, buttonClassName, child
           </form>
           {children}
           <form method="dialog" className="px-5 pb-5 sm:px-7 sm:pb-7">
-            <button className="w-full text-center text-[13px] font-medium text-ink/55 hover:text-navy">Close</button>
+            <button className="w-full text-center text-[13px] font-medium text-ink/70 hover:text-navy">Close</button>
           </form>
         </div>
       </dialog>

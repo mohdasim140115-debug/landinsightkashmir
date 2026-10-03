@@ -74,10 +74,10 @@ export default async function ThankYouPage({ searchParams }) {
                       <span className="grid size-9 place-items-center rounded-full border border-gold/60 bg-ivory text-navy">
                         <Icon className="size-4" aria-hidden="true" />
                       </span>
-                      <span className="text-[12px] font-semibold text-ink/50">Step {i + 1}</span>
+                      <span className="text-[12px] font-semibold text-ink/70">Step {i + 1}</span>
                     </span>
                     <p className="mt-3 text-[14.5px] font-semibold text-navy">{title}</p>
-                    <p className="mt-1 text-[13.5px] leading-relaxed text-ink/65">{text}</p>
+                    <p className="mt-1 text-[13.5px] leading-relaxed text-ink/70">{text}</p>
                   </li>
                 ))}
               </ol>
@@ -98,7 +98,7 @@ export default async function ThankYouPage({ searchParams }) {
               </a>
             </div>
           </div>
-          <p className="mt-6 text-center text-[13px] text-ink/55">
+          <p className="mt-6 text-center text-[13px] text-ink/70">
             {SITE.email} · {SITE.phones.map((p) => p.display).join(" · ")}
           </p>
         </Container>

@@ -25,7 +25,7 @@ export function CtaBanner() {
             src={img("Snowmobile Adventure Through Alpine Peaks.png")}
             alt=""
             fill
-            quality={70}
+            quality={60}
             sizes="(max-width: 1280px) 100vw, 1216px"
             className="-z-10 object-cover"
           />
@@ -101,7 +101,7 @@ export function Destinations() {
                   src={d.image}
                   alt={d.alt}
                   fill
-                  quality={70}
+                  quality={60}
                   sizes="(max-width: 640px) 78vw, (max-width: 1024px) 50vw, 400px"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                 />
@@ -202,11 +202,11 @@ export function CustomTrip() {
             src={img("Vibrant Tulip Garden Beneath Snowy Peaks.png")}
             alt="Tulip garden beneath snowy peaks on a custom Kashmir trip"
             fill
-            quality={70}
+            quality={60}
             sizes="(max-width: 1024px) 100vw, 600px"
             className="object-cover"
           />
-          <div className="absolute inset-x-4 bottom-4 flex items-center gap-3 rounded-2xl bg-white/95 p-4 shadow-card backdrop-blur sm:inset-x-6 sm:bottom-6">
+          <div className="absolute inset-x-4 bottom-4 flex items-center gap-3 rounded-2xl bg-white/95 p-4 shadow-card sm:inset-x-6 sm:bottom-6">
             <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand text-white">
               <Sparkles className="size-5" aria-hidden="true" />
             </span>
@@ -255,7 +255,7 @@ export function Testimonials() {
                 </blockquote>
                 <figcaption className="mt-6 border-t border-line pt-4 text-[13.5px]">
                   <span className="block font-semibold text-navy">Traveller review</span>
-                  <span className="text-ink/60">{t.trip}</span>
+                  <span className="text-ink/70">{t.trip}</span>
                 </figcaption>
               </figure>
             </li>

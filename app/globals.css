@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #1597c5;
-  --color-brand-dark: #0f7fa8;
+  --color-brand: #0c7299; /* deepened from #1597c5 for WCAG AA text/button contrast */
+  --color-brand-dark: #095c7c;
   --color-navy: #063b4c;
   --color-navy-deep: #042c39;
   --color-mist: #f3fafd;
@@ -12,8 +12,8 @@
   --color-gold: #efb54a;
   --color-ivory: #fdf8ef;
   --color-ivory-deep: #f6eddc;
-  --color-whatsapp: #1da851;
-  --color-whatsapp-dark: #178a43;
+  --color-whatsapp: #0f7d42; /* WhatsApp green, deepened for AA contrast with white text */
+  --color-whatsapp-dark: #0b6534;
 
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
@@ -56,8 +56,7 @@ details > summary::-webkit-details-marker {
 
 /* Native <dialog> backdrop for package details */
 dialog::backdrop {
-  background: rgb(4 44 57 / 0.6);
-  backdrop-filter: blur(2px);
+  background: rgb(4 44 57 / 0.7);
 }
 
 /* Hide scrollbar on mobile carousels */
@@ -73,4 +72,14 @@ input[type="date"] {
   min-height: 46px;
   -webkit-appearance: none;
   appearance: none;
+}
+
+/* Performance: skip style/layout/paint for below-the-fold sections until they
+   approach the viewport. Hero (1st) and trust strip (2nd, overlaps the hero)
+   are excluded. `auto` remembers each section's real size after first render. */
+main > section:nth-child(n + 3),
+body > footer,
+main + footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
