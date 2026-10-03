@@ -72,13 +72,13 @@ export function Hero() {
 
       <Container className="grid items-center gap-10 pt-10 pb-16 sm:pt-12 lg:grid-cols-[1fr_400px] lg:gap-10 lg:pt-14 lg:pb-20 xl:grid-cols-[1fr_420px] xl:gap-14">
         <div className="max-w-[760px] text-white">
-          <p className="inline-flex items-center gap-2.5 rounded-full border border-gold/70 bg-navy-deep/40 px-4 py-2 text-[11px] font-semibold tracking-[0.18em] uppercase backdrop-blur-sm">
+          <p className="hidden items-center gap-2.5 rounded-full border border-gold/70 sm:inline-flex bg-navy-deep/40 px-4 py-2 text-[11px] font-semibold tracking-[0.18em] uppercase backdrop-blur-sm">
             <Flower2 className="size-4 text-gold" strokeWidth={1.75} aria-hidden="true" />
             Local Kashmir Travel Experts
           </p>
           <h1
             id="hero-title"
-            className="mt-4 font-serif text-[32px] leading-[1.12] font-semibold tracking-tight sm:text-[40px] lg:text-[31px] xl:text-[42px]"
+            className="font-serif text-[32px] sm:mt-4 leading-[1.12] font-semibold tracking-tight sm:text-[40px] lg:text-[31px] xl:text-[42px]"
           >
             Best Kashmir Tour Packages for an <br className="hidden lg:inline" />
             Unforgettable <span className="text-gold">Kashmir Trip</span>
@@ -92,7 +92,7 @@ export function Hero() {
             unforgettable <strong>Kashmir holidays</strong>.
           </p>
 
-          <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-4 sm:gap-x-3">
+          <ul className="mt-6 hidden grid-cols-2 gap-x-4 gap-y-4 sm:grid sm:grid-cols-4 sm:gap-x-3">
             {POINTS.map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center gap-2.5 text-[13.5px] leading-snug font-medium text-white/90">
                 <span className="grid size-11 shrink-0 place-items-center rounded-full border border-gold/70 bg-navy-deep/30 text-gold">
@@ -103,13 +103,16 @@ export function Hero() {
             ))}
           </ul>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <a href="#packages" className={btn("primary", "lg", "w-full shadow-lg shadow-brand/25 sm:w-auto")}>
-              <Plane className="size-4" aria-hidden="true" />
-              Explore Kashmir Packages
-              <ArrowRight className="size-4" aria-hidden="true" />
+          <div className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-7 sm:flex sm:gap-3">
+            <a
+              href="#packages"
+              className={btn("primary", "lg", "w-full whitespace-nowrap shadow-lg shadow-brand/25 max-sm:gap-1.5 max-sm:px-3 max-sm:text-[14.5px] sm:w-auto")}
+            >
+              <Plane className="size-4 max-sm:hidden" aria-hidden="true" />
+              Explore <span className="hidden sm:inline">Kashmir</span> Packages
+              <ArrowRight className="size-4 max-sm:hidden" aria-hidden="true" />
             </a>
-            <EnquiryButton className={btn("dark", "lg", "w-full sm:w-auto")}>
+            <EnquiryButton className={btn("dark", "lg", "w-full whitespace-nowrap max-sm:gap-1.5 max-sm:px-3 max-sm:text-[14.5px] sm:w-auto")}>
               <CalendarCheck className="size-4" aria-hidden="true" />
               Book Now
             </EnquiryButton>
