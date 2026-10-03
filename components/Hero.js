@@ -58,7 +58,8 @@ export function Hero() {
         src={HERO_IMAGE.src}
         alt={HERO_IMAGE.alt}
         fill
-        preload
+        loading="eager"
+        fetchPriority="high"
         quality={60}
         sizes="100vw"
         className="-z-10 object-cover object-[62%_80%] lg:object-[60%_center]"
