@@ -81,7 +81,7 @@ export default function KashmirTourPackagePage() {
       </main>
       <Footer />
       <MobileCtaBar />
-      <EnquiryModal />
+      <EnquiryModal autoOpen />
     </>
   );
 }

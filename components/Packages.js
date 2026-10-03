@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { ArrowRight, BedDouble, Camera, Car, Clock3, MapPin, Phone, UtensilsCrossed } from "lucide-react";
+import { ArrowRight, BadgeIndianRupee, BedDouble, CalendarCheck, Camera, Car, Clock3, MapPin, Phone, UtensilsCrossed } from "lucide-react";
 import { PACKAGES, PRIMARY_PHONE, whatsappLink } from "@/lib/site";
 import { Container, Section, SectionHeading, WhatsAppIcon, btn } from "./ui";
 import PackageDialog from "./PackageDialog";
 import { EnquiryButton } from "./EnquiryModal";
+import RateTable from "./RateTable";
 
 const INCLUDES = [
   { icon: BedDouble, label: "Hotel Stay", short: "Hotel" },
@@ -44,6 +45,9 @@ function PackageDetails({ p }) {
             </span>
           ))}
         </div>
+
+        <h4 className="mt-6 mb-3 text-[15px] font-semibold text-navy">Price per person</h4>
+        <RateTable compact />
 
         <h4 className="mt-6 text-[15px] font-semibold text-navy">Indicative day-wise plan</h4>
         <ol className="mt-3 space-y-3 border-l border-line pl-5">
@@ -170,7 +174,7 @@ function PackageCard({ p }) {
         <div className="mt-3.5 grid grid-cols-2 gap-2.5">
           <a
             href={`tel:${PRIMARY_PHONE.tel}`}
-            className={btn("secondary", "md", "w-full")}
+            className={btn("secondary", "md", "w-full gap-1.5 px-3 whitespace-nowrap")}
             aria-label={`Call about the ${p.fullName}`}
             data-cta="package-call"
           >
@@ -197,6 +201,28 @@ export default function Packages() {
           {PACKAGES.map((p) => (
             <PackageCard key={p.slug} p={p} />
           ))}
+        </div>
+
+        <div id="package-price" className="mt-14 scroll-mt-28 rounded-[20px] border border-line bg-white p-5 shadow-card sm:p-8">
+          <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="flex items-center gap-2 text-[12px] font-semibold tracking-[0.16em] text-brand uppercase">
+                <BadgeIndianRupee className="size-4" aria-hidden="true" />
+                Price per person
+              </p>
+              <h3 className="mt-2 font-serif text-[24px] leading-tight font-semibold text-navy sm:text-[28px]">
+                Kashmir Tour Package Price
+              </h3>
+              <p className="mt-1.5 text-[14px] text-ink/65">
+                Choose your group size and hotel category — 5 Nights / 6 Days with hotels, meals, transfers and sightseeing.
+              </p>
+            </div>
+            <EnquiryButton className={btn("primary", "md", "w-full shrink-0 sm:w-auto")}>
+              <CalendarCheck className="size-4" aria-hidden="true" />
+              Book Now
+            </EnquiryButton>
+          </div>
+          <RateTable />
         </div>
 
         <p className="mt-8 text-center text-[14px] text-ink/65">

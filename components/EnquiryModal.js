@@ -6,13 +6,15 @@ import EnquiryForm from "./EnquiryForm";
 import { btn } from "./ui";
 
 const EVENT = "open-package-enquiry";
+const AUTO_KEY = "lik-enquiry-popup-shown";
+const AUTO_DELAY_MS = 2500;
 
 /** Button that opens the shared enquiry modal for a specific package. */
 export function EnquiryButton({ pkg = null, className, onClick, children }) {
   return (
     <button
       type="button"
-      className={className || btn("primary", "md", "w-full")}
+      className={className || btn("primary", "md", "w-full gap-1.5 px-3 whitespace-nowrap")}
       aria-haspopup="dialog"
       onClick={(e) => {
         // If launched from inside the package-details dialog, close that first.
@@ -32,7 +34,7 @@ export function EnquiryButton({ pkg = null, className, onClick, children }) {
 }
 
 /** One modal shared by every package card. Rendered once on the page. */
-export default function EnquiryModal() {
+export default function EnquiryModal({ autoOpen = false }) {
   const ref = useRef(null);
   const [pkg, setPkg] = useState(null);
   const [openCount, setOpenCount] = useState(0);
@@ -46,6 +48,25 @@ export default function EnquiryModal() {
     window.addEventListener(EVENT, onOpen);
     return () => window.removeEventListener(EVENT, onOpen);
   }, []);
+
+  // Auto-open the enquiry form shortly after the page loads — once per browser
+  // session, and never on top of another open dialog.
+  useEffect(() => {
+    if (!autoOpen) return;
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem(AUTO_KEY) === "1";
+    } catch {}
+    if (seen) return;
+    const t = setTimeout(() => {
+      if (document.querySelector("dialog[open]")) return;
+      try {
+        sessionStorage.setItem(AUTO_KEY, "1");
+      } catch {}
+      window.dispatchEvent(new CustomEvent(EVENT, { detail: null }));
+    }, AUTO_DELAY_MS);
+    return () => clearTimeout(t);
+  }, [autoOpen]);
 
   return (
     <dialog

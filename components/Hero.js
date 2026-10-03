@@ -116,7 +116,8 @@ export function Hero() {
           </div>
         </div>
 
-        <div id="enquiry" className="scroll-mt-24 pt-6 lg:pt-4">
+        {/* Desktop only – on mobile the enquiry form opens as a pop-up instead */}
+        <div id="enquiry" className="hidden scroll-mt-24 lg:block lg:pt-4">
           <div className="relative w-full rounded-[24px] border border-gold/30 bg-ivory shadow-[0_30px_60px_-28px_rgb(0_0_0/0.6)] lg:w-full">
             {/* Arched crown, echoing Kashmiri mihrab / houseboat woodwork */}
             <svg
